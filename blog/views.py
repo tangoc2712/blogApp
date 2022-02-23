@@ -4,7 +4,7 @@ from .models import Post
 # Create your views here.
 def post_list(request):
     posts = Post.published.all()
-    return render(request, "list", {"posts": posts})
+    return render(request, "blog/post/list.html", {"posts": posts})
 
 
 def post_detail(request, year, month, day, post):
@@ -16,4 +16,4 @@ def post_detail(request, year, month, day, post):
         publish__month=month,
         publish__day=day,
     )
-    return render(request, "detail", {"post": post})
+    return render(request, "blog/post/detail.html", {"post": post})
