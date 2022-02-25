@@ -13,7 +13,7 @@
 ### 2. Trong models, ta có manager mặc định là objects. Ngoài ra cũng có thể tự tạo một manager dành cho model. Ví dụ cụ thể ở bài toán lần này là tạo một custom manager cho models Post là PublishedManager để quản lý những bài đăng đã được xuất bản.
 
 <br>
-![](http://url/to/img.png)
+![](https://github.com/tangoc2712/blogApp/blob/main/image/Screenshot%202022-02-25%20183916.png)
 
 <br>
 

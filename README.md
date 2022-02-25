@@ -37,7 +37,7 @@ After that, run in browser by default [127.0.0.1:8000](127.0.0.1:8000)
 
 ## 3. More description in Vietnamese
 
--   [Docs]()
+-   [Docs](https://github.com/tangoc2712/blogApp/blob/main/docs.md)
 
 ## License
 
