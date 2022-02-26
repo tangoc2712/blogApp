@@ -1,27 +1,27 @@
-# Blog
+# Blog 2.0
 
-_This is blog webapp using Django, Boostrap_
+_This is blog webapp 2.0 using Django, basic HTML, CSS, Boostrap_
 
 ## 1. Installation
 
 -   Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all package.
 
-```bash
-pip install virtualenv
-virtualenv <yourFoldername>
-cd <yourFoldername>
+    ```bash
+    pip install virtualenv
+    virtualenv <yourFoldername>
+    cd <yourFoldername>
 
-# in Window OS, activate virtualenv
-scripts\activate
-```
+    # in Window OS, activate virtualenv
+    scripts\activate
+    ```
 
 -   Use the [git](https://git-scm.com/) to install project.
 
-```bash
-git clone github.com/tangoc2712
-cd mysite
-pip install -r requirement.txt
-```
+    ```bash
+    git clone github.com/tangoc2712
+    cd mysite
+    pip install -r requirement.txt
+    ```
 
 ## 2. Run project
 
@@ -39,6 +39,6 @@ After that, run in browser by default [127.0.0.1:8000](127.0.0.1:8000)
 
 -   [Docs](https://github.com/tangoc2712/blogApp/blob/main/docs.md)
 
-## License
+## 4. License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+-   [MIT](https://choosealicense.com/licenses/mit/)

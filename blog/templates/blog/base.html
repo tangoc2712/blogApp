@@ -3,13 +3,16 @@
 <html>
     <head>
         <title>{% block title %}{% endblock %}</title>
+        <link href='https://fonts.googleapis.com/css?family=Hepta Slab' rel='stylesheet'>
         <link href="{% static 'css/blog.css' %}" rel="stylesheet" />
     </head>
     <body>
         <div id="content">{% block content %} {% endblock %}</div>
         <div id="sidebar">
-            <h2>My blog</h2>
-            <p>This is my blog.</p>
+            <h2>Học nhạc thật đơn giản cùng KiKi</h2>
+            <p>Chào các bạn, đây là blog chia sẻ một số kiến thức cơ bản về nhạc lý dành cho các bạn yêu thích với âm nhạc và muốn bắt đầu làm quen và tìm hiểu về nó. Nào cùng mình khám phá nhé!</p>
+            <a href='{% url "blog:post_list" %}'>Trang chủ</a>
         </div>
     </body>
 </html>
+{% comment %} send_mail('Django mail', 'This e-mail was sent with Django.', 'taquangngoc.hh31@gmail.com', ['taquangngoc.hh31@gmail.com'], fail_silently=False) {% endcomment %}
