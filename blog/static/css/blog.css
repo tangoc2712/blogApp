@@ -10,7 +10,7 @@ a {
 
 h1 {
     font-weight: bold;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 4px solid #cf820e79;
     padding: 0 0 10px 0;
 }
 
@@ -20,21 +20,25 @@ h2 {
 }
 .container {
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid#8ea81952;
 }
 #content {
     display: flex;
     flex-direction: column;
-    float: left;
-    width: 60%;
+    float: right;
+    width: 75%;
     padding: 0 0 0 30px;
 }
 
 #sidebar {
-    float: right;
-    width: 30%;
+    width: 20%;
     padding: 10px;
     background: #efefef;
     height: 100%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
 }
 
 p.date {
@@ -69,7 +73,7 @@ textarea {
 }
 input[type="submit"] {
     font-weight: bold;
-    background: #00abff;
+    background: #cf820e;
     color: #fff;
     padding: 10px 20px;
     font-size: 14px;
@@ -83,14 +87,19 @@ input[type="submit"] {
 }
 
 /* comments */
+.comment-zone {
+    background: #efefef;
+    box-shadow: #666;
+}
+
 .comment {
     padding: 10px;
+    border-bottom: 4px solid #b3aaaa88;
 }
 .comment:nth-child(even) {
     background: #efefef;
 }
 .comment .info {
-    font-weight: bold;
     font-size: 12px;
     color: #666;
 }

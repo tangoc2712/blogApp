@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post
 from django.http import HttpResponse
 from django.template import loader
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
-from .forms import EmailPostForm
 from django.core.mail import send_mail
+from .models import Post, Comment
+from .forms import EmailPostForm, CommentForm
 
 # Create your views here.
 
@@ -54,7 +54,31 @@ def post_detail(request, year, month, day, post):
         publish__day=day,
     )
 
-    return render(request, "blog/post/detail.html", {"post": post})
+    # Lấy ra đống comment đã active,
+    # dùng như này là vì ở Comment model có relate đến Post
+    # dưới cái tên là comments,
+    # nên coi nó là đối tượng thông qua để lấy thuộc tính active
+    comments = post.comments.filter(active=True)
+
+    new_comment = None
+
+    if request.method == "POST":  # nếu thông tin đã được gửi
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(
+                commit=False
+            )  # tạo Comment object, nhưng thiếu thuộc tính post
+            new_comment.post = post  # thêm thuộc tính post
+            new_comment.save()  # lưu vào CSDL
+    else:
+        comment_form = CommentForm()
+    context = {
+        "post": post,
+        "comments": comments,
+        "new_comment": new_comment,
+        "comment_form": comment_form,
+    }
+    return render(request, "blog/post/detail.html", context)
 
 
 def post_share(request, post_id):
@@ -75,10 +99,8 @@ def post_share(request, post_id):
             )
             send_mail(subject, message, "taquangngoc.hh31@gmail.com", [cd["to"]])
             sent = True
-
-            return render(request, "blog/post/detail.html", {"post": post})
     else:
         form = EmailPostForm()
-        return render(
-            request, "blog/post/share.html", {"post": post, "form": form, "sent": sent}
-        )
+    return render(
+        request, "blog/post/share.html", {"post": post, "form": form, "sent": sent}
+    )

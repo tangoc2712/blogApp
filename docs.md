@@ -16,7 +16,6 @@
 	
 ![alt text](https://github.com/tangoc2712/blogApp/blob/main/image/Screenshot%202022-02-25%20183916.png?raw=true)
 
-
 <br>
 
 ### [3. Tạo list và detail view](https://github.com/tangoc2712/blogApp/blob/main/blog/views.py#L7-L500)
@@ -56,6 +55,17 @@ Thay đổi view từ fucntion-based sang class-based view có một số lợi 
 
 ### 8. Chia sẻ bài đăng bằng email (Form Handle)
 
--   [Tạo form để người dùng điền thông tin]()
--   [Tạo url, template hiển thị form]()
--   [Tạo view logic ở views.py để lấy dữ liệu bài đăng và gửi đi bằng email]()
+Để gửi email bằng host của gmail, ta cần cài đặt trong [settings.py](https://github.com/tangoc2712/blogApp/blob/main/mysite/settings.py#L85-L90), sau đó cài đặt cho quyền truy cập không an toàn ở tài khoản gmail(_không khuyến khích làm theo_)
+
+-   [Tạo form để người dùng điền thông tin](https://github.com/tangoc2712/blogApp/blob/main/blog/forms.py)
+-   [Tạo url, template hiển thị form](https://github.com/tangoc2712/blogApp/blob/main/blog/templates/blog/post/share.html)
+-   [Tạo view logic ở views.py để lấy dữ liệu bài đăng và gửi đi bằng email](https://github.com/tangoc2712/blogApp/blob/main/blog/views.py#L60-L90)
+
+### 9. Tạo hệ thống comment
+
+Danh sách các công việc cần làm là:
+
+-   [Tạo model chứa các thông tin comment từ guess](): : Gồm các trường như là post (khóa ngoại nối nhiều một với Post model), tên, email, nội dung, ngày tạo, ngày cập nhật, trạng thái active hay chưa ====> Nhớ makemigrations, migrate, đăng kí vào admin site
+-   [Tạo form và validate dữ liệu đầu vào](): Khác với class Form như ở trên gửi email, lần này ta cần lưu dữ liệu comment, nên là cần sử dụng ModelForm class
+-   [Sửa tại view]():
+-   [Chỉnh sửa template của post_detail để thêm comment vào]()
