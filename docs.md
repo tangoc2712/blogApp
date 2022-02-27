@@ -78,6 +78,14 @@ Danh sách các công việc cần làm là:
 
 Để search thì sẽ gửi GET request (chứa từ search), sau đó sẽ kiểm tra form cuối cùng cho về biến results là các đối tượng Post được filter
 
--   Tạo search form, chứa field là query
--   Xử lý logic ở view
--   Template
+-   [Tạo search form, chứa field là query]()
+-   [Xử lý logic ở view]()
+-   [Template]()
+
+### 12. Tạo custom template tag
+
+Không phải ở trang nào ta cũng lấy các context từ các view trong project được, vậy nên ta sẽ tạo các [template tag](https://docs.djangoproject.com/en/4.0/howto/custom-template-tags/) để xử lý dữ liệu và hiển thị, các bước:
+
+1. Tạo folder package templatetags
+2. Tạo file yourtag.py
+3. Đăng kí vào thư viện
