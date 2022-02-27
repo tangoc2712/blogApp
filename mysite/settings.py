@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "#+77=5&u4&@320%d2@(hvtmk-o4m*^)z@g9pe$p=7(@*n)0p1y"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["tqn-blog.herokuapp.com", "127.0.0.1"]
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "ckeditor",
     "blog.apps.BlogConfig",
+    "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
@@ -80,10 +81,10 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "blog",
-        "USER": "ngoc",
-        "PASSWORD": "1",
-        "HOST": "127.0.0.1",
+        "NAME": "de940d1nmlvvc6",
+        "USER": "bztqfbjuinhudj",
+        "PASSWORD": "05cebd1ede1f2991368e9beb141434e0b3c1170f14d90dda8326adc07e631b90",
+        "HOST": "ec2-34-233-157-9.compute-1.amazonaws.com",
         "PORT": "5432",
     }
 }
@@ -133,3 +134,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES["default"].update(db_from_env)
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
