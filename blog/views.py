@@ -5,7 +5,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 from django.core.mail import send_mail
 from .models import Post, Comment
-from .forms import EmailPostForm, CommentForm
+from .forms import EmailPostForm, CommentForm, SearchForm
+from django.contrib.postgres.search import SearchVector
 
 # Create your views here.
 
@@ -90,7 +91,9 @@ def post_share(request, post_id):
         form = EmailPostForm(request.POST)
         if form.is_valid():
             # Form fields passed validation
-            cd = form.cleaned_data
+            cd = (
+                form.cleaned_data
+            )  # la dictionary chứa dữ liệu clear, chỉ gọi được sau khi check is_valid
             post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = f"{cd['name']} recommends you read " f"{post.title}"
             message = (
@@ -101,6 +104,31 @@ def post_share(request, post_id):
             sent = True
     else:
         form = EmailPostForm()
-    return render(
-        request, "blog/post/share.html", {"post": post, "form": form, "sent": sent}
-    )
+
+    context = {
+        "post": post,
+        "form": form,
+        "sent": sent,
+    }
+    return render(request, "blog/post/share.html", context)
+
+
+def post_search(request):
+    form = SearchForm()
+    query = None
+    results = []
+
+    if request.method == "GET":
+        form = SearchForm(request.GET)
+        if form.is_valid():
+            query = form.cleaned_data["query"]
+        results = Post.published.annotate(
+            search=SearchVector("title", "body"),
+        ).filter(search=query)
+
+    context = {
+        "query": query,
+        "form": form,
+        "results": results,
+    }
+    return render(request, "blog/post/search.html", context)

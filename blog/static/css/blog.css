@@ -53,7 +53,10 @@ p.date {
     margin: 40px 0;
     font-weight: bold;
 }
-
+/* .step-links {
+    background-color: rgba(0, 56, 37, 0.349);
+    border-radius: 2px;
+} */
 /* forms */
 label {
     float: left;
@@ -63,6 +66,7 @@ label {
 }
 input,
 textarea {
+    width: 75%;
     clear: both;
     float: left;
     margin: 0 0 10px;
@@ -72,6 +76,8 @@ textarea {
     font-size: 12px;
 }
 input[type="submit"] {
+    width: 180px;
+    border-radius: 7px;
     font-weight: bold;
     background: #cf820e;
     color: #fff;

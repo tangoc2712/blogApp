@@ -8,7 +8,7 @@
         <a href="{{ post.get_absolute_url }}"> {{ post.title }} </a>
     </h2>
     <div>
-        <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+        <p class="date">Xuất bản {{ post.publish }} bởi {{ post.author }}</p>
         {{ post.body|safe|truncatechars_html:500 }}
     </div>
 </div>

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
+    "django.contrib.postgres",
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "ckeditor",
@@ -77,10 +78,15 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "blog",
+        "USER": "ngoc",
+        "PASSWORD": "1",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
+
 
 # Send mail SMTP
 EMAIL_HOST = "smtp.gmail.com"

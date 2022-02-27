@@ -65,7 +65,19 @@ Thay đổi view từ fucntion-based sang class-based view có một số lợi 
 
 Danh sách các công việc cần làm là:
 
--   [Tạo model chứa các thông tin comment từ guess](): : Gồm các trường như là post (khóa ngoại nối nhiều một với Post model), tên, email, nội dung, ngày tạo, ngày cập nhật, trạng thái active hay chưa ====> Nhớ makemigrations, migrate, đăng kí vào admin site
--   [Tạo form và validate dữ liệu đầu vào](): Khác với class Form như ở trên gửi email, lần này ta cần lưu dữ liệu comment, nên là cần sử dụng ModelForm class
--   [Sửa tại view]():
--   [Chỉnh sửa template của post_detail để thêm comment vào]()
+-   [Tạo model chứa các thông tin comment từ guess](https://github.com/tangoc2712/blogApp/blob/main/blog/models.py#L46-L59): : Gồm các trường như là post (khóa ngoại nối nhiều một với Post model), tên, email, nội dung, ngày tạo, ngày cập nhật, trạng thái active hay chưa ====> Nhớ makemigrations, migrate, đăng kí vào admin site
+-   [Tạo form và validate dữ liệu đầu vào](https://github.com/tangoc2712/blogApp/blob/main/blog/forms.py#L12-L15): Khác với class Form như ở trên gửi email, lần này ta cần lưu dữ liệu comment, nên là cần sử dụng ModelForm class
+-   [Sửa tại view](https://github.com/tangoc2712/blogApp/blob/main/blog/views.py#L65-L81):
+-   [Chỉnh sửa template của post_detail để thêm comment vào](https://github.com/tangoc2712/blogApp/blob/main/blog/templates/blog/post/detail.html#L27-L38)
+
+### 10. Cài đặt PostgreSQL
+
+-   Nếu ở Window thì cần tạo csdl và acc ở PgAdmin, sau đó ghi thông tin của csdl vào settings.py
+
+### 11. Cài đặt Search View
+
+Để search thì sẽ gửi GET request (chứa từ search), sau đó sẽ kiểm tra form cuối cùng cho về biến results là các đối tượng Post được filter
+
+-   Tạo search form, chứa field là query
+-   Xử lý logic ở view
+-   Template
