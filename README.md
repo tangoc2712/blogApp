@@ -1,6 +1,7 @@
 # Blog 2.0
 
 _This is blog webapp 2.0 using Django, basic HTML, CSS, Boostrap_
+You can see at [Học nhạc cùng KiKi](https://tqn-blog.herokuapp.com/)
 
 ## 1. Installation
 
