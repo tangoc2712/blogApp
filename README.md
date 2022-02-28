@@ -37,8 +37,21 @@ After that, run in browser by default [127.0.0.1:8000](127.0.0.1:8000)
 
 ## 3. More description in Vietnamese
 
--   [Docs](https://github.com/tangoc2712/blogApp/blob/main/docs.md)
+-   [Docs](https://github.com/tangoc2712/blogApp/blob/main/docs.md) 
 
-## 4. License
+## 4. Preview
+Home Page, Comment Function
+
+ ![](https://github.com/tangoc2712/blogApp/blob/main/image/full.jpeg?raw=true)
+ 
+Search Function
+
+ ![](https://github.com/tangoc2712/blogApp/blob/main/image/search.jpeg?raw=true)
+ 
+Share Function
+
+ ![](https://github.com/tangoc2712/blogApp/blob/main/image/share.jpeg?raw=true)
+
+## 5. License
 
 -   [MIT](https://choosealicense.com/licenses/mit/)
