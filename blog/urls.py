@@ -5,6 +5,7 @@ from .views import PostListView
 
 app_name = "blog"
 urlpatterns = [
+    path("register/", views.registerPage, name="register"),
     # post views
     path("", views.PostListView.as_view(), name="post_list"),
     path(

@@ -73,17 +73,27 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "de940d1nmlvvc6",
-        "USER": "bztqfbjuinhudj",
-        "PASSWORD": "05cebd1ede1f2991368e9beb141434e0b3c1170f14d90dda8326adc07e631b90",
-        "HOST": "ec2-34-233-157-9.compute-1.amazonaws.com",
+        "NAME": "blog",
+        "USER": "ngoc",
+        "PASSWORD": "1",
+        "HOST": "127.0.0.1",
         "PORT": "5432",
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "de940d1nmlvvc6",
+#         "USER": "bztqfbjuinhudj",
+#         "PASSWORD": "05cebd1ede1f2991368e9beb141434e0b3c1170f14d90dda8326adc07e631b90",
+#         "HOST": "ec2-34-233-157-9.compute-1.amazonaws.com",
+#         "PORT": "5432",
+#     }
+# }
 
 
 # Send mail SMTP

@@ -1,12 +1,15 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.template import loader
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 from django.core.mail import send_mail
+from django.contrib import messages
 from .models import Post, Comment
-from .forms import EmailPostForm, CommentForm, SearchForm
+from .forms import EmailPostForm, CommentForm, SearchForm, CreateUserForm
 from django.contrib.postgres.search import SearchVector
+
+# from .decorators import unauthenticated_user
 
 # Create your views here.
 
@@ -132,3 +135,20 @@ def post_search(request):
         "results": results,
     }
     return render(request, "blog/post/search.html", context)
+
+
+def registerPage(request):
+    if not request.user.is_authenticated:
+        form = CreateUserForm()
+        if request.method == "POST":
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                user = form.save()
+                username = form.cleaned_data.get("username")
+
+                messages.success(request, "Account was created for " + username)
+
+                return redirect("blog:post_list")
+
+        context = {"form": form}
+        return render(request, "blog/register.html", context)
