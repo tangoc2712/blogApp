@@ -1,4 +1,4 @@
-{% extends "blog/base.html" %}
+{% extends "base.html" %}
 {% comment %} {% load blog_tags %} {% endcomment %}
 {% block title %}Tìm kiếm{% endblock %}
 {% block content %}
@@ -21,7 +21,7 @@
         <h1>Tìm kiếm bài viết</h1>
         <form method="get">
             {{ form.as_p }}
-            <input type="submit" value="Search">
+            <input type="submit" value="Tìm kiếm">
         </form>
     {% endif %}
 {% endblock %}

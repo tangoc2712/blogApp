@@ -135,20 +135,3 @@ def post_search(request):
         "results": results,
     }
     return render(request, "blog/post/search.html", context)
-
-
-def registerPage(request):
-    if not request.user.is_authenticated:
-        form = CreateUserForm()
-        if request.method == "POST":
-            form = CreateUserForm(request.POST)
-            if form.is_valid():
-                user = form.save()
-                username = form.cleaned_data.get("username")
-
-                messages.success(request, "Account was created for " + username)
-
-                return redirect("blog:post_list")
-
-        context = {"form": form}
-        return render(request, "blog/register.html", context)
