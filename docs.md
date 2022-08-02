@@ -73,6 +73,7 @@ Danh sách các công việc cần làm là:
 ### 10. Cài đặt PostgreSQL
 
 -   Nếu ở Window thì cần tạo csdl và acc ở PgAdmin, sau đó ghi thông tin của csdl vào settings.py
+-   Khi deploy config ở setting và PgAdmin xong thì cần thêm vào config var (DATABASE_URL = <rds.aws.com>)
 
 ### 11. Cài đặt Search View
 
